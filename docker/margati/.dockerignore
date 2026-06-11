@@ -1,0 +1,18 @@
+# Build context exclusions (run: docker build -f docker/margati/Dockerfile .)
+.git
+.github
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+htmlcov
+.coverage
+*.egg-info
+docs
+tests
+projects
+demo
+docker/china
+docker/global
+docker/margati/docker-compose.yml
