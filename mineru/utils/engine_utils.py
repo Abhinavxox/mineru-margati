@@ -18,6 +18,10 @@ def get_vlm_engine(inference_engine: str, is_async: bool = False) -> str:
     Returns:
         最终选择的引擎名称
     """
+    env_override = os.getenv("MINERU_VLM_INFERENCE_ENGINE", "").strip()
+    if env_override:
+        inference_engine = env_override
+
     if inference_engine == 'auto':
         # 根据操作系统自动选择引擎
         if is_windows_environment():

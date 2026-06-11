@@ -1345,6 +1345,12 @@ async def get_async_task_result(
     )
 
 
+@app.get(path="/")
+async def root_health_check():
+    """RunPod HTTP proxy probes GET / — delegate to /health."""
+    return await health_check()
+
+
 @app.get(path="/health")
 async def health_check():
     task_manager = getattr(app.state, "task_manager", None)

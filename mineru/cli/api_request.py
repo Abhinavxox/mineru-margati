@@ -1,4 +1,5 @@
 # Copyright (c) Opendatalab. All rights reserved.
+import os
 from dataclasses import dataclass
 from typing import Annotated, Optional
 
@@ -94,7 +95,7 @@ async def parse_request_form(
 - hybrid-auto-engine: Next-generation high accuracy solution via local computing power, supports multiple languages.
 - hybrid-http-client: High accuracy via remote computing power but requires a little local computing power(client suitable for openai-compatible servers), supports multiple languages.""",
         ),
-    ] = "hybrid-auto-engine",
+    ] = os.getenv("MINERU_DEFAULT_BACKEND", "vlm-auto-engine"),
     parse_method: Annotated[
         str,
         Form(
